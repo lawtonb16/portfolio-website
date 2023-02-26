@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import Skills from "./components/Skills";
+import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
+import Projects from "./components/Projects";
+
+const Page = styled.div`
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(
+        90deg,
+        rgba(20, 49, 57, 1) 27%,
+        rgba(8, 14, 54, 1) 73%
+    );
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Page>
+            <Navbar />
+            <Routes>
+              <Route path ="/"element={<Skills />} />
+              <Route path ="/projects" element={<Projects />} />
+            </Routes>
+        </Page>
+    );
 }
 
 export default App;
